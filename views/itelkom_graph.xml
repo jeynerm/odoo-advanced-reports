@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="itelkom_graphs_view_form" model="ir.ui.view">
+		<field name="name">itelkom.graphs.form.view</field>
+		<field name="model">itelkom.graphs</field>
+		<field name="arch" type="xml">
+			<form string="Graficos">
+				<header>
+					<button string="Generar Grafico" name="action_generate_graph" type="object" class="btn-primary"/>
+					<button string="Agregar Dato" name="action_agregate_data" type="object" class="btn-primary"/>
+					<button string="Agregar Filtro" name="action_agregate_filter" type="object" class="btn-primary"/>
+				</header>
+				<sheet string="Grafico">
+					<div class="oe_title">
+						<h1>
+							<field name="name"/>
+						</h1>
+					</div> 
+					<group name="main">
+						<group>
+							<field name="graph_modelo"/>
+							<field name="update"/>
+						</group>
+						<group>
+							<field name="graph_report" filename="graph_report_filename"/>
+							<field name="graph_report_filename" invisible="1"/>
+						</group>
+					</group>
+					<div>
+						<notebook>
+							<page string="Grafico" id="graph">
+								<group width="100%%">  
+									<div> 
+										<field name="graph_graph" widget="image" width="100%%" filename="graph_graph_filename"/>
+										<field name="graph_graph_filename" invisible="1"/>
+									</div>
+								</group>
+							</page>  
+							<page string="Datos" id="datas">
+								<div>
+									<field name="data_lines">
+										<tree editable="bottom">
+											<field name="name"/>
+											<field name="graph_data_type"/>
+											<field name="data_1" domain="[('model_id.id','=',model_base)]"/>
+											<field name="relation_1" invisible="1"/>
+											<field name="data_2" domain="[('model_id.model','=',relation_1)]"/>
+											<field name="relation_2" invisible="1"/>
+											<field name="data_3" domain="[('model_id.model','=',relation_2)]"/>
+											<field name="relation_3" invisible="1"/>
+											<field name="data_4" optional="hide" domain="[('model_id.model','=',relation_3)]"/>
+											<field name="relation_4" invisible="1"/>
+											<field name="data_5" optional="hide" domain="[('model_id.model','=',relation_4)]"/>
+											<field name="operation"/>
+											<field name="model_base" invisible="1"/>
+										</tree>
+										<form string="Datos">
+											<group>
+												<group>
+													<field name="name"/>
+        											<field name="graph_data_type"/>
+        											<field name="data_1" domain="[('model_id.id','=',model_base)]"/>
+        											<field name="relation_1" invisible="1"/>
+        											<field name="data_2" domain="[('model_id.model','=',relation_1)]"/>
+        											<field name="relation_2" invisible="1"/>
+        											<field name="data_3" domain="[('model_id.model','=',relation_2)]"/>
+        											<field name="relation_3" invisible="1"/>
+        											<field name="data_4" domain="[('model_id.model','=',relation_3)]"/>
+        											<field name="relation_4" invisible="1"/>
+        											<field name="data_5" domain="[('model_id.model','=',relation_4)]"/>
+													<field name="operation"/>
+        											<field name="model_base" invisible="1"/>
+												</group>
+											</group>
+										</form>
+									</field>
+								</div>
+							</page> 
+							<page string="Filtros" id="filters">
+								<div>
+									<field name="filter_lines">
+										<tree editable="bottom">
+											<field name="data_1"  domain="[('model_id.id','=',model_base)]"/>
+											<field name="relation_1" invisible="1"/>
+											<field name="data_2" domain="[('model_id.model','=',relation_1)]"/>
+											<field name="relation_2" invisible="1"/>
+											<field name="data_3" domain="[('model_id.model','=',relation_2)]"/>
+											<field name="relation_3" invisible="1"/>
+											<field name="data_4" optional="hide" domain="[('model_id.model','=',relation_3)]"/>
+											<field name="relation_4" invisible="1"/>
+											<field name="data_5" optional="hide" domain="[('model_id.model','=',relation_4)]"/>
+											<field name="condition"/>
+											<field name="searchvalue"/>
+											<field name="searchvalue2" optional="hide"/>
+											<field name="searchvalue3" optional="hide"/>
+											<field name="searchvalue4" optional="hide"/>
+											<field name="searchvalue5" optional="hide"/>
+											<field name="model_base" invisible="1"/>
+										</tree>
+										<form string="Filtros">
+											<group>
+												<group>
+        											<field name="data_1"  domain="[('model_id.id','=',model_base)]"/>
+        											<field name="relation_1" invisible="1"/>
+        											<field name="data_2" domain="[('model_id.model','=',relation_1)]"/>
+        											<field name="relation_2" invisible="1"/>
+        											<field name="data_3" domain="[('model_id.model','=',relation_2)]"/>
+        											<field name="relation_3" invisible="1"/>
+        											<field name="data_4" domain="[('model_id.model','=',relation_3)]"/>
+        											<field name="relation_4" invisible="1"/>
+        											<field name="data_5" domain="[('model_id.model','=',relation_4)]"/>
+        											<field name="condition"/>
+        											<field name="searchvalue"/>
+													<field name="searchvalue2"/>
+													<field name="searchvalue3"/>
+													<field name="searchvalue4"/>
+													<field name="searchvalue5"/>
+        											<field name="model_base" invisible="1"/>
+												</group>
+											</group>
+										</form>
+									</field>
+								</div>
+							</page>
+						</notebook>
+					</div>
+				</sheet>
+			</form>
+		</field>
+	</record>
+</odoo>
+  
+
+
